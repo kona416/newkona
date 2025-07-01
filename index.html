@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🔒 CLASSIFIED: Seri's Archive</title>
+  <style>
+    body {
+      background-color: #cdd6c1;
+      font-family: 'Courier New', monospace;
+      padding: 40px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      justify-items: center;
+      position: relative;
+    }
+
+    .lang-switcher {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      display: flex;
+      gap: 6px;
+    }
+
+    .lang-switcher button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 20px;
+    }
+
+    .note {
+      background: #fff9c4;
+      padding: 20px;
+      border: 2px solid black;
+      box-shadow: 5px 5px 0px #222;
+      position: relative;
+      overflow: auto;
+    }
+
+    .note::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.6);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .note:hover::after {
+      opacity: 1;
+    }
+
+    .note h3, .note p {
+      position: relative;
+      z-index: 2;
+    }
+
+    #note1 { width: 260px; height: 180px; }
+    #note2 { width: 220px; height: 240px; }
+    #note3 { width: 300px; height: 200px; }
+    #note4 { width: 250px; height: 220px; }
+    #note5 { width: 280px; height: 260px; }
+    #note6 { width: 230px; height: 190px; }
+
+    .contacts {
+      grid-column: 1 / -1;
+      text-align: center;
+      font-size: 14px;
+      margin-top: 20px;
+    }
+
+    .contacts a {
+      text-decoration: none;
+      color: black;
+      margin: 0 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="lang-switcher">
+    <button onclick="setLanguage('ko')">🇰🇷</button>
+    <button onclick="setLanguage('en')">🇺🇸</button>
+    <button onclick="setLanguage('ru')">🇷🇺</button>
+    <button onclick="setLanguage('ja')">🇯🇵</button>
+    <button onclick="setLanguage('es')">🇪🇸</button>
+    <button onclick="setLanguage('th')">🇹🇭</button>
+  </div>
+
+  <div class="note" id="note1">
+    <h3></h3>
+    <p></p>
+  </div>
+  <div class="note" id="note2">
+    <h3></h3>
+    <p></p>
+  </div>
+  <div class="note" id="note3">
+    <h3></h3>
+    <p></p>
+  </div>
+  <div class="note" id="note4">
+    <h3></h3>
+    <p></p>
+  </div>
+  <div class="note" id="note5">
+    <h3></h3>
+    <p></p>
+  </div>
+  <div class="note" id="note6">
+    <h3></h3>
+    <p></p>
+  </div>
+
+  <div class="contacts">
+    Contacts: ✉️ <a href="#">Email</a>, <a href="#">📷 Instagram</a>
+  </div>
+
+  <script>
+    const content = {
+      en: Array(6).fill(["[SECTION]", "English placeholder text"]),
+      ko: [
+        ["[STK-R04]", "비승인된 라벨 모음<br><br>시각 바이러스는 마침내 포장지를 벗고 길거리에서 증식했다.<br><br>그들은 이 작은 표식을 “무해”하다고 판단했으나, 그건 실수였다."],
+        ["[ECHO.418α]", "독립 작전 기록<br><br>독립적으로 수행된 기록은 누락되었거나, 고의로 삭제되었거나.<br><br>반복되는 파형 속에 진짜 메시지는 감춰져 있다."],
+        ["[B-X_CORE]", "브랜드 침투 작전 보고서<br><br>이것은 브랜드가 아니다. 이것은 기억을 조정하는 시각 장치다.<br><br>당신은 ‘선택했다’고 생각하겠지만, 그건 유도된 반응이었다."],
+        ["[VSN-9-FRONT]", "시각 선전물 수집소<br><br>이들은 선전물이 아니다. 구조화된 감정 폭격 장치에 가깝다.<br><br>우리의 반응은 수집되었고, 그 데이터는 이미 무기로 전환되었다."],
+        ["[PAGE-13]", "서적 해체 및 재조합 문서<br><br>책을 해체하고 다시 엮는다는 건, 언어를 조작한다는 뜻이다.<br><br>페이지는 진실이 아니라 설계된 서사. 그 페이지는 존재하지 않았어."],
+        ["[REDACTED: ████]", "접근 권한 없음<br><br>접속 시도 감지됨. 해당 파일은 존재하지 않거나, 존재했다가 사라졌거나.<br><br>신호는 여전히 미약하게 수신 중. 주의 요망."]
+      ],
+      ru: Array(6).fill(["[РАЗДЕЛ]", "Текст-заполнитель на русском"]),
+      ja: Array(6).fill(["[セクション]", "日本語のプレースホルダーテキスト"]),
+      es: Array(6).fill(["[SECCIÓN]", "Texto de marcador de posición en español"]),
+      th: Array(6).fill(["[หมวด]", "ข้อความตัวยึดภาษาไทย"])
+    };
+
+    function setLanguage(lang) {
+      if (!content[lang]) {
+        alert("Translation for this language is not available yet.");
+        return;
+      }
+      content[lang].forEach((entry, index) => {
+        document.querySelector(`#note${index + 1} h3`).innerHTML = entry[0];
+        document.querySelector(`#note${index + 1} p`).innerHTML = entry[1];
+      });
+    }
+
+    setLanguage('ko');
+  </script>
+</body>
+</html>
