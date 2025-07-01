@@ -84,7 +84,7 @@
 @media screen and (max-width: 768px) {
   body {
     grid-template-columns: 1fr;
-    padding: 40px 20px 80px;  /* ⬅ 하단 80px 추가! 겹침 방지 */
+    padding: 40px 20px 80px; /* 아래 여백 넉넉히 */
     justify-items: center;
     row-gap: 30px;
   }
@@ -93,19 +93,8 @@
     width: 90vw !important;
     max-width: 320px;
     padding: 14px;
-    font-size: 14px;
     margin: 20px 0;
-    height: auto;
     box-sizing: border-box;
-  }
-
-  .note h3 {
-    font-size: 16px;
-  }
-
-  .note p {
-    font-size: 13px;
-    line-height: 1.4;
   }
 
   .contact-note {
@@ -119,15 +108,10 @@
     width: 90vw;
     max-width: 320px;
     margin: 20px 0;
-  }
-
-  .lang-switcher {
-    top: 10px;
-    right: 10px;
-    font-size: 13px;
-    gap: 4px;
+    justify-self: center;  /* ✅ 중앙 정렬 핵심 */
   }
 }
+
 
 
   </style>
