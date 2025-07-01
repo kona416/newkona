@@ -81,6 +81,28 @@
   text-decoration: none;
   color: inherit;
 }
+@media screen and (max-width: 768px) {
+  body {
+    grid-template-columns: 1fr; /* 모바일: 1열로 */
+    padding: 20px;
+  }
+
+  .note {
+    width: 100% !important;  /* 박스 너비 꽉 채우기 */
+    max-width: 90vw;
+    height: auto;
+  }
+
+  .home-link {
+    font-size: 16px;
+    padding: 8px 16px;
+  }
+
+  .contact-note {
+    font-size: 12px;
+    padding: 10px;
+  }
+}
 
 
   </style>
