@@ -88,8 +88,9 @@
   }
 
   .note {
-    width: 100% !important;  /* 박스 너비 꽉 채우기 */
-    max-width: 90vw;
+    width: 90vw !important;  /* 박스 너비 꽉 채우기 */
+    padding: 12px;            /* 기존보다 줄인 패딩 */
+    font-size: 14px;
     height: auto;
   }
 
@@ -97,10 +98,26 @@
     font-size: 16px;
     padding: 8px 16px;
   }
+.note h3 {
+    font-size: 16px;
+  }
 
+  .note p {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  .lang-switcher {
+    top: 10px;
+    right: 10px;
+    font-size: 13px;
+    gap: 4px;
+  }
   .contact-note {
-    font-size: 12px;
-    padding: 10px;
+    font-size: 11px;
+    opacity: 0.8;
+    text-align: center;
+    margin-top: 30px;
   }
 }
 .note {
