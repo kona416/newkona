@@ -83,22 +83,23 @@
 }
 @media screen and (max-width: 768px) {
   body {
-    grid-template-columns: 1fr; /* 모바일: 1열로 */
-    padding: 20px;
+    grid-template-columns: 1fr;
+    padding: 40px 20px; /* 상하 40px, 좌우 20px */
+    justify-items: center;
+    row-gap: 30px;
   }
 
   .note {
-    width: 90vw !important;  /* 박스 너비 꽉 채우기 */
-    padding: 12px;            /* 기존보다 줄인 패딩 */
+    width: 85vw !important;
+    max-width: 320px;
+    padding: 14px;
     font-size: 14px;
+    margin: 20px 0; /* 상하 간격 추가 */
     height: auto;
+    box-sizing: border-box;
   }
 
-  .home-link {
-    font-size: 16px;
-    padding: 8px 16px;
-  }
-.note h3 {
+  .note h3 {
     font-size: 16px;
   }
 
@@ -113,6 +114,7 @@
     font-size: 13px;
     gap: 4px;
   }
+
   .contact-note {
     font-size: 11px;
     opacity: 0.8;
@@ -120,10 +122,6 @@
     margin-top: 30px;
   }
 }
-.note {
-  box-sizing: border-box;
-}
-
 
   </style>
 </head>
