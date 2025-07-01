@@ -85,34 +85,37 @@
 }
 @media screen and (max-width: 768px) {
   body {
-    grid-template-columns: 1fr;
-    padding: 60px 40px 80px; /* 아래 여백 넉넉히 */
-    justify-items: center;
-    row-gap: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 20px 100px; /* 상, 좌우, 아래 여백 */
+    gap: 20px;
   }
 
   .note {
-    width: 90vw !important;
+    width: 90vw;
     max-width: 320px;
     padding: 14px;
-    margin: 20px 0;
     box-sizing: border-box;
+    margin: 10px 0;
   }
 
-   .contact-note {
-  position: fixed;       /* ✅ 고정! */
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80vw;
-  max-width: 300px;
-  background: #fff9c4;
-  padding: 12px;
-  border: 2px solid black;
-  box-shadow: 4px 4px 0px #222;
-  font-size: 12px;
-  text-align: center;
-  z-index: 1000;
+  .contact-note {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 80vw;
+    max-width: 300px;
+    background: #fff9c4;
+    padding: 12px;
+    border: 2px solid black;
+    box-shadow: 4px 4px 0px #222;
+    font-size: 12px;
+    text-align: center;
+    z-index: 1000;
+  }
 }
 
 
