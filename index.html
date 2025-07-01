@@ -84,17 +84,17 @@
 @media screen and (max-width: 768px) {
   body {
     grid-template-columns: 1fr;
-    padding: 40px 20px; /* 상하 40px, 좌우 20px */
+    padding: 40px 20px 80px;  /* ⬅ 하단 80px 추가! 겹침 방지 */
     justify-items: center;
     row-gap: 30px;
   }
 
   .note {
-    width: 85vw !important;
+    width: 90vw !important;
     max-width: 320px;
     padding: 14px;
     font-size: 14px;
-    margin: 20px 0; /* 상하 간격 추가 */
+    margin: 20px 0;
     height: auto;
     box-sizing: border-box;
   }
@@ -108,19 +108,24 @@
     line-height: 1.4;
   }
 
+  .contact-note {
+    background: #fff9c4;
+    padding: 16px;
+    border: 2px solid black;
+    box-shadow: 5px 5px 0px #222;
+    font-size: 13px;
+    text-align: center;
+    box-sizing: border-box;
+    width: 90vw;
+    max-width: 320px;
+    margin: 20px 0;
+  }
+
   .lang-switcher {
     top: 10px;
     right: 10px;
     font-size: 13px;
     gap: 4px;
-  }
-
-  .contact-note {
-    .contact-note {
-    width: 90vw;
-    max-width: 320px;
-    margin: 20px 0;
-    font-size: 12px;
   }
 }
 
