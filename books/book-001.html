@@ -5,7 +5,37 @@
   <meta charset="UTF-8">
   <title>Book 001</title>
   <style>
-    body {
+
+.classified-title {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 20px;
+  text-decoration: none;
+  font-weight: bold;
+  background: #fff9c4;
+  border: 2px solid black;
+  padding: 6px 16px;
+  box-shadow: 4px 4px 0px #222;
+  color: black;
+  z-index: 1000;
+}
+        
+.home-link {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  background: #fff9c4;
+  border: 2px solid black;
+  padding: 6px 12px;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  box-shadow: 3px 3px 0px #222;
+  z-index: 999;
+}
+            body {
       background: #fff;
       display: flex;
       flex-direction: column;
@@ -25,6 +55,8 @@
   <script src="https://cdn.jsdelivr.net/npm/turn.js@4/turn.min.js"></script>
 </head>
 <body>
+  <a href="../../index.html" class="classified-title">🔒 CLASSIFIED</a>
+  <a href="../../index.html" class="home-link">🏠 메인으로</a>
   <div class="home-link">
     <a href="../book.html">🏠 Back to Shelf</a>
   </div>
@@ -48,5 +80,14 @@
       autoCenter: true
     });
   </script>
-</body>
+
+<script>
+  document.addEventListener("click", function (e) {
+    const book = document.getElementById("book");
+    if (!book.contains(e.target)) {
+      window.location.href = "../../book.html"; // 다시 책장으로
+    }
+  });
+</script>
+        </body>
 </html>

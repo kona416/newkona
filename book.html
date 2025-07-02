@@ -6,7 +6,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Bookshelf</title>
   <style>
-    body {
+
+.classified-title {
+}
+
+.book-grid {
+  margin-top: 80px;
+}
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 20px;
+  text-decoration: none;
+  font-weight: bold;
+  background: #fff9c4;
+  border: 2px solid black;
+  padding: 6px 16px;
+  box-shadow: 4px 4px 0px #222;
+  color: black;
+  z-index: 1000;
+}
+            body {
       background: #f9f9f9;
       font-family: sans-serif;
     }
@@ -58,6 +79,8 @@
   </style>
 </head>
 <body>
+  <a href="index.html" class="classified-title">🔒 CLASSIFIED</a>
+  <div class="book-grid">
   <div class="bookshelf">
     <div class="book" onclick="openBook('book-001')">
       <img src="assets/covers/book-001.jpg" alt="Book 001">
@@ -89,5 +112,6 @@
       window.location.href = `books/${currentBookId}.html`;
     }
   </script>
+</div>
 </body>
 </html>
