@@ -1,93 +1,57 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Book 001</title>
+  <meta charset="UTF-8" />
+  <title>Book 001 - Flip</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/4.1.0/turn.min.js"></script>
   <style>
-
-.classified-title {
-  position: absolute;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 20px;
-  text-decoration: none;
-  font-weight: bold;
-  background: #fff9c4;
-  border: 2px solid black;
-  padding: 6px 16px;
-  box-shadow: 4px 4px 0px #222;
-  color: black;
-  z-index: 1000;
-}
-        
-.home-link {
-  position: absolute;
-  top: 10px;
-  left: 20px;
-  background: #fff9c4;
-  border: 2px solid black;
-  padding: 6px 12px;
-  text-decoration: none;
-  color: black;
-  font-weight: bold;
-  box-shadow: 3px 3px 0px #222;
-  z-index: 999;
-}
-            body {
-      background: #fff;
+    body {
+      margin: 0;
+      background: #eee;
       display: flex;
-      flex-direction: column;
+      justify-content: center;
       align-items: center;
-      font-family: sans-serif;
+      height: 100vh;
     }
+
     #flipbook {
-      width: 800px;
-      height: 600px;
+      width: 600px;
+      height: 400px;
     }
-    .home-link {
-      margin: 20px;
+
+    #flipbook .page {
+      background: white;
+      border: 1px solid #ccc;
+      padding: 20px;
       font-size: 18px;
+      line-height: 1.6;
     }
   </style>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/turn.js@4/turn.min.js"></script>
 </head>
 <body>
-  <a href="../../index.html" class="classified-title">🔒 CLASSIFIED</a>
-  <a href="../../index.html" class="home-link">🏠 메인으로</a>
-  <div class="home-link">
-    <a href="../book.html">🏠 Back to Shelf</a>
-  </div>
   <div id="flipbook">
-    <div><img src="book-001/page5.jpg" width="100%" height="100%"></div>
-    <div><img src="book-001/page6.jpg" width="100%" height="100%"></div>
-    <div><img src="book-001/page7.jpg" width="100%" height="100%"></div>
-    <div><img src="book-001/page8.jpg" width="100%" height="100%"></div>
-    <div><img src="book-001/page9.jpg" width="100%" height="100%"></div>
-    <div><img src="book-001/page10.jpg" width="100%" height="100%"></div>
-    <div><img src="book-001/page1.jpg" width="100%" height="100%"></div>
-    <div><img src="book-001/page2.jpg" width="100%" height="100%"></div>
-    <div><img src="book-001/page3.jpg" width="100%" height="100%"></div>
-    <div><img src="book-001/page4.jpg" width="100%" height="100%"></div>
+    <div class="page">Page 1<br><br><small>(Click outside to close)</small></div>
+    <div class="page">Page 2</div>
+    <div class="page">Page 3</div>
+    <div class="page">Page 4</div>
+    <div class="page">Page 5</div>
+    <div class="page">Page 6</div>
   </div>
 
   <script>
     $('#flipbook').turn({
-      width: 800,
-      height: 600,
+      width: 600,
+      height: 400,
       autoCenter: true
     });
-  </script>
 
-<script>
-  document.addEventListener("click", function (e) {
-    const book = document.getElementById("book");
-    if (!book.contains(e.target)) {
-      window.location.href = "../../book.html"; // 다시 책장으로
-    }
-  });
-</script>
-        </body>
+    // Click outside to return to book.html
+    $(document).on('click', function(e) {
+      if (!$(e.target).closest('#flipbook').length) {
+        window.location.href = '../book.html';
+      }
+    });
+  </script>
+</body>
 </html>
