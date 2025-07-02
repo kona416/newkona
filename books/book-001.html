@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Book 001</title>
+  <style>
+    body {
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: sans-serif;
+    }
+    #flipbook {
+      width: 800px;
+      height: 600px;
+    }
+    .home-link {
+      margin: 20px;
+      font-size: 18px;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/turn.js@4/turn.min.js"></script>
+</head>
+<body>
+  <div class="home-link">
+    <a href="../book.html">🏠 Back to Shelf</a>
+  </div>
+  <div id="flipbook">
+    <div><img src="book-001/page5.jpg" width="100%" height="100%"></div>
+    <div><img src="book-001/page6.jpg" width="100%" height="100%"></div>
+    <div><img src="book-001/page7.jpg" width="100%" height="100%"></div>
+    <div><img src="book-001/page8.jpg" width="100%" height="100%"></div>
+    <div><img src="book-001/page9.jpg" width="100%" height="100%"></div>
+    <div><img src="book-001/page10.jpg" width="100%" height="100%"></div>
+    <div><img src="book-001/page1.jpg" width="100%" height="100%"></div>
+    <div><img src="book-001/page2.jpg" width="100%" height="100%"></div>
+    <div><img src="book-001/page3.jpg" width="100%" height="100%"></div>
+    <div><img src="book-001/page4.jpg" width="100%" height="100%"></div>
+  </div>
+
+  <script>
+    $('#flipbook').turn({
+      width: 800,
+      height: 600,
+      autoCenter: true
+    });
+  </script>
+</body>
+</html>
