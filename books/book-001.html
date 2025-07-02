@@ -2,13 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Book 001 - Image Flip</title>
+  <title>Book 001 - Flipbook</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/4.1.0/turn.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/turn.js@4/turn.min.js"></script>
   <style>
     body {
       margin: 0;
-      background: #eee;
+      padding: 0;
+      background: #f2f2f2;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -24,13 +26,25 @@
       width: 400px;
       height: 500px;
       background: white;
-      box-shadow: 0 0 6px rgba(0,0,0,0.2);
+      box-shadow: 0 0 8px rgba(0,0,0,0.2);
     }
 
     .page img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+    }
+
+    @media screen and (max-width: 768px) {
+      #flipbook {
+        width: 90vw;
+        height: 60vh;
+      }
+
+      #flipbook .page {
+        width: 45vw;
+        height: 60vh;
+      }
     }
   </style>
 </head>
@@ -45,28 +59,29 @@
   </div>
 
   <script>
-    $('#flipbook').turn({
-      width: 800,
-      height: 500,
-      autoCenter: true
-    });
+    document.addEventListener("DOMContentLoaded", function() {
+      $('#flipbook').turn({
+        width: document.getElementById('flipbook').offsetWidth,
+        height: document.getElementById('flipbook').offsetHeight,
+        autoCenter: true
+      });
 
-    $(document).on('click', function(e) {
-      if (!$(e.target).closest('#flipbook').length) {
-        window.location.href = '../book.html';
-      }
-    });
+      document.addEventListener('click', function(e) {
+        if (!e.target.closest('#flipbook')) {
+          window.location.href = '../book.html';
+        }
+      });
 
-    // Click to turn page
-    document.getElementById('flipbook').addEventListener('click', function(e) {
-      const flipbook = $('#flipbook');
-      const offset = flipbook.offset();
-      const width = flipbook.width();
-      if (e.pageX > offset.left + width / 2) {
-        flipbook.turn('next');
-      } else {
-        flipbook.turn('previous');
-      }
+      document.getElementById('flipbook').addEventListener('click', function(e) {
+        const flipbook = $('#flipbook');
+        const offset = flipbook.offset();
+        const width = flipbook.width();
+        if (e.pageX > offset.left + width / 2) {
+          flipbook.turn('next');
+        } else {
+          flipbook.turn('previous');
+        }
+      });
     });
   </script>
 </body>
