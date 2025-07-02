@@ -50,6 +50,18 @@
     $(document).on('click', function(e) {
       if (!$(e.target).closest('#flipbook').length) {
         window.location.href = '../book.html';
+
+    // Click to flip based on mouse position
+    document.getElementById('flipbook').addEventListener('click', function(e) {
+      const flipbook = $('#flipbook');
+      const offset = flipbook.offset();
+      const width = flipbook.width();
+      if (e.pageX > offset.left + width / 2) {
+        flipbook.turn('next');
+      } else {
+        flipbook.turn('previous');
+      }
+    });
       }
     });
   </script>
