@@ -1,131 +1,43 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Bookshelf</title>
+  <title>[B-X_CORE]</title>
   <style>
-
-.classified-title {
-  position: absolute;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 20px;
-  text-decoration: none;
-  font-weight: bold;
-  background: #fff9c4;
-  border: 2px solid black;
-  padding: 6px 16px;
-  box-shadow: 4px 4px 0px #222;
-  color: black;
-  z-index: 1000;
-}
-}
-
-.book-grid {
-  margin-top: 80px;
-}
-  position: absolute;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 20px;
-  text-decoration: none;
-  font-weight: bold;
-  background: #fff9c4;
-  border: 2px solid black;
-  padding: 6px 16px;
-  box-shadow: 4px 4px 0px #222;
-  color: black;
-  z-index: 1000;
-}
-            body {
-      background: #f9f9f9;
-      font-family: sans-serif;
-    }
-    .bookshelf {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 20px;
+    body {
+      background-color: #f9f9f9;
+      font-family: 'Courier New', monospace;
       padding: 40px;
+      margin: 0;
     }
-    .book img {
-      width: 100%;
-      cursor: pointer;
-    }
-    .popup {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
-      background: rgba(0,0,0,0.6);
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
-    .popup-content {
-      position: relative;
-      background: white;
-      padding: 20px;
-      max-width: 600px;
-      width: 80vw;
-    }
-    #popup-cover {
-      width: 100%;
-    }
-    .open-left {
+    .home-link {
       position: absolute;
-      left: 10px;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 28px;
-      cursor: pointer;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 18px;
+      font-weight: bold;
+      background-color: #fff9c4;
+      padding: 10px 20px;
+      border: 2px solid black;
+      box-shadow: 3px 3px 0px #222;
     }
-    .close-btn {
-      position: absolute;
-      top: 8px;
-      right: 12px;
-      font-size: 20px;
-      cursor: pointer;
+    .home-link a {
+      color: black;
+      text-decoration: none;
+    }
+    h1 {
+      font-size: 24px;
+      margin-top: 100px;
     }
   </style>
 </head>
 <body>
-  <a href="index.html" class="classified-title">🔒 CLASSIFIED</a>
-  <div class="book-grid">
-  <div class="bookshelf">
-    <div class="book" onclick="openBook('book-001')">
-      <img src="assets/covers/book-001.jpg" alt="Book 001">
-    </div>
+  <div class="home-link">
+    <a href="index.html">🔒 CLASSIFIED</a>
   </div>
-
-  <div class="popup" id="popup">
-    <div class="popup-content">
-      <img id="popup-cover" src="" alt="Book Cover">
-      <div class="open-left" onclick="goToFlipbook()">📖</div>
-      <div class="close-btn" onclick="closePopup()">✖</div>
-    </div>
-  </div>
-
-  <script>
-    let currentBookId = "";
-
-    function openBook(bookId) {
-      currentBookId = bookId;
-      document.getElementById("popup-cover").src = `assets/covers/${bookId}.jpg`;
-      document.getElementById("popup").style.display = "flex";
-    }
-
-    function closePopup() {
-      document.getElementById("popup").style.display = "none";
-    }
-
-    function goToFlipbook() {
-      window.location.href = `books/${currentBookId}.html`;
-    }
-  </script>
-</div>
+  <h1>[B-X_CORE]</h1>
+  <p>브랜드 침투 보고서</p>
 </body>
 </html>
